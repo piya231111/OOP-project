@@ -10,7 +10,7 @@
 ## presentation: [canva] 
 link [public/ubu]
 ## video: 
-link [https://drive.google.com/file/d/1Yl4eeiM1AV6SrMJA9Q05rKm6hHqraKp4/view?usp=drive_link]
+link [...]
 
 ** xoxoxo
  
