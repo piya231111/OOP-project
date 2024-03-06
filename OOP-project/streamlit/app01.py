@@ -4,18 +4,28 @@ from PIL import Image
 def main():
     st.set_page_config(page_title="My Animals App", page_icon="🐾", layout="wide", initial_sidebar_state="expanded")
 
-    logo = Image.open("OOP-project/streamlit/pictures/cat03.jpg)
+    logo = Image.open("OOP-project/OOP-project/streamlit/pictures/cat03.jpg")
     logo_resized = logo.resize((1500, 500))
     st.image(logo_resized, use_column_width=False)
 
-st.set_page_config(theme={
-      "primaryColor": "#333333",
-      "backgroundColor": "#ffffff",
-      "secondaryBackgroundColor": "#f0f0f0",
-      "textColor": "#262730",
-      "font": "sans serif",
-    })
+    st.markdown("""
+<style>
+body {
+  background-color: #F0F8FF;
+  font-family: Arial, sans-serif;
+}
 
+.sidebar {
+  background-color: #A9A9A9;
+}
+
+.my-button {
+  color: white;
+  background-color: #008000;
+}
+</style>
+""", unsafe_allow_html=True)
+    
     st.markdown("""
     **Adopt don't shop!**
 
@@ -36,212 +46,104 @@ st.set_page_config(theme={
     **มาช่วยกันสร้างโลกที่สัตว์ทุกตัวมีบ้านกันเถอะ!**
 """)
 
-    selected_option = st.sidebar.radio("Menu", ["Home", "Popular Animals", "Donate", "About", "Contact"])
+    st.markdown("## อันดับสัตว์ที่นิยมเลี้ยงมากที่ได้แก่อะไรบ้าง?")
 
-    if selected_option == "Home":
-        display_home()
+    st.markdown("## แมว") 
+    st.image("OOP-project/OOP-project/streamlit/pictures/cat01.jpg" ,use_column_width=True)
+    st.write("แมว (Cat): แมวเป็นสัตว์เลี้ยงที่คนไทยนิยมเลี้ยงอย่างกว้างขวาง เป็นสัตว์ที่น่ารักและเป็นมิตร แมวสามารถปรับตัวให้เหมาะสมกับสภาพแวดล้อมที่อยู่อยู่ได้ง่าย นอกจากนี้ยังมีพฤติกรรมที่น่าสนุกและน่าติดตามในการเลี้ยงดู")
 
-    elif selected_option == "Popular Animals":
-        display_top_animals()
+    st.markdown("## สุนัข") 
+    st.image("OOP-project/OOP-project/streamlit/pictures/dog01.jpg" ,use_column_width=True)
+    st.write("สุนัข (Dog): สุนัขเป็นสัตว์เลี้ยงที่คนไทยนิยมเลี้ยงในบ้านอีกสัตว์หนึ่ง สุนัขมีความภูมิใจในความภักดีและจิตใจที่ดีของสัตว์เลี้ยงที่มีความภูมิใจในการปกป้องบ้านและคนในครอบครัว")
 
-    elif selected_option == "Donate":
-        display_donate()
+    st.markdown("## กระต่าย") 
+    st.image("OOP-project/OOP-project/streamlit/pictures/logo00.jpg" ,use_column_width=True)
+    st.write("กระต่าย (Rabbit): กระต่ายเป็นสัตว์ที่น่ารักและเป็นมิตร มีขนนุ่มนวลและถูกใจคนที่ชอบสัตว์ที่น่ารัก การเลี้ยงกระต่ายในบ้านสามารถดูแลและซ่อมแซมที่พื้นที่จำกัดได้ง่าย")
 
-    elif selected_option == "About":
-        display_about()
+    st.markdown("## แฮมสเตอร์") 
+    st.image("OOP-project/OOP-project/streamlit/pictures/hamster__00.jpg" ,use_column_width=True)
+    st.write("แฮมสเตอร์ (Hamster): ใครที่กำลังริเริ่มอยากมีสัตว์เลี้ยงเป็นของตัวเอง แบบฉบับที่ไม่ต้องเปลืองพื้นที่ แถมยังเลี้ยงง่าย แต่ไม่รู้ว่าจะเลี้ยงอะไรดี เจ้าหนูแฮมเตอร์ สัตว์ฟันแทะที่ได้รับความนิยมอย่างมากอีกชนิดหนึ่ง ถือเป็นหนึ่งในสัตว์เลี้ยงตัวจิ๋วที่ตอบโจทย์ทั้งเลี้ยงง่ายแถมยังไม่ต้องใช้พื้นที่เยอะ")
 
-    elif selected_option == "Contact":
-        display_contact()
+    st.markdown("## ไก่") 
+    st.image("OOP-project/OOP-project/streamlit/pictures/chicken__00.jpg" ,use_column_width=True)
+    st.write("ไก่ (Chicken): Kanari น้อยคนที่จะนึกถึงไก่หากไม่ได้ชื่นชอบเป็นทุนเดิม แต่ไก่ที่การนำมาเลี้ยงเป็นไก่สวยงามในปัจจุบันก็มีอยู่หลายสายพันธุ์ ทั้งไก่ญี่ปุ่นขนทอง ไก่โปรแลนด์ หรือแม้แต่ไก่แจ้ไทย")
 
-def display_home():
-    st.markdown("<h1>Home</h1>")
-    st.write("Welcome to the Adopt Animals app, where you can find and connect with your loving furry friends waiting to be adopted!")
-
-    st.image("OOP-project/streamlit/pictures/home_image.jpg", use_column_width=True)
-
-    st.markdown("""
-        ### Why adopt?
-        Adopting an abandoned animal not only fills their life with love and happiness but also yours!
-    """)
-
-    st.markdown("""
-        ### How to use
-        Select the menu on the side to explore more information such as popular animals, donation programs, about us, and contact us.
-    """)
-
-def display_top_animals():
-  st.markdown("<h1>สัตว์ทั้งหมด</h1>")
-
-  if st.button("ดูข้อมูลทั้งหมด"):
-    display_all_animals()
-
-  animal_type = st.selectbox("ประเภทสัตว์", ["ทั้งหมด"] + list(set(animal["type"] for animal in animals)))
-  animal_gender = st.selectbox("เพศ", ["ทั้งหมด", "ตัวผู้", "ตัวเมีย"])
-  animal_age_range = st.selectbox("ช่วงอายุ", ["ทั้งหมด", "1-2 ปี", "3-4 ปี", "5 ปีขึ้นไป"])
-
-  filtered_animals = [animal for animal in animals if 
-    (animal_type == "ทั้งหมด" or animal["type"] == animal_type) and
-    (animal_gender == "ทั้งหมด" or animal["gender"] == animal_gender) and
-    (animal_age_range == "ทั้งหมด" or animal_age_range == f"{animal['age']}-{animal['age']+1} ปี")]
-
-  for animal in filtered_animals:
-    display_animal(animal)
-
-def display_all_animals():
-  st.markdown("<h1>รายชื่อสัตว์ทั้งหมด</h1>")
-  for animal in animals:
-    display_animal(animal)
-
-animals = [
-    {
-        "type": "แมว",
-        "breed": "แมวไทย",
-        "gender": "ตัวเมีย",
-        "age": "1-2 ปี",
-        "personality": "ขี้อ้อน เล่นซน",
-        "image": "OOP-project/streamlit/pictures/cat02.jpg",
-        "contact": {
-            "name": "นายมีมิ่งสุข จันทร์เขียว",
-            "phone": "095-000-0000",
-            "email": "meekun.2456@example.com"
-        },
-        "additional_info": {
-            "reason": "ต้องการเพื่อนเล่นแก้เหงา",
-            "location": "คอนโดมิเนียม",
-            "experience": "เคยเลี้ยงแมวมาก่อน",
-            "other": "พร้อมที่จะดูแลแมวอย่างเต็มที่"
-        }
-    },
-        {
-        "type": "สุนัข",
-        "breed": "สุนัขพันธุ์ไทย",
-        "gender": "ตัวผู้",
-        "age": "4-5 ปี",
-        "personality": "ขี้ตกใจ ฉลาด",
-        "image": "OOP-project/streamlit/pictures/dog01.jpg",
-        "contact": {
-            "name": "น.ส.สมหญิง แกร่งกล้า",
-            "phone": "061-000-0000",
-            "email": "miracle.miracle@example.com"
-        },
-        "additional_info": {
-            "reason": "ต้องการเพื่อนเล่นแก้เหงา",
-            "location": "ต้องการหาบ้านใหม่",
-            "experience": "เคยเลี้ยงหมามาก่อน",
-            "other": "พร้อมที่จะดูแลหมาอย่างเต็มที่"
-        }
-    },
-        {
-        "type": "แมว",
-        "breed": "แมวเปอร์เซีย",
-        "gender": "ตัวผู้",
-        "age": "2-3 ปี",
-        "personality": "โลกส่วนตัวสูง กินจุ",
-        "image": "OOP-project/streamlit/pictures/cat04.jpg",
-        "contact": {
-            "name": "น.ส.ปิยฉัตร วันใส",
-            "phone": "084-000-0000",
-            "email": "piyachat.va.66@ubu.ac.th"
-        },
-        "additional_info": {
-            "reason": "ต้องการเพื่อนเล่นแก้เหงา",
-            "location": "คอนโดมิเนียม",
-            "experience": "เคยเลี้ยงแมวมาก่อน",
-            "other": "พร้อมที่จะดูแลแมวอย่างเต็มที่"
-        }
-    },
-        {
-        "type": "แมว",
-        "breed": "แมวลายสลิด",
-        "gender": "ตัวเมีย",
-        "age": "3-4 ปี",
-        "personality": "ใจดี รักเด็ก",
-        "image": "OOP-project/streamlit/pictures/cat01.jpg",
-        "contact": {
-           "name": "น.ส.สมใจ สุขใจ",
-           "phone": "085-000-0000",
-           "email": "somjai.sukjai@example.com"
-        },
-        "additional_info": {
-        "reason": "ต้องการหาบ้านใหม่",
-        "location": "คอนโดมิเนียม",
-        "experience": "เคยเลี้ยงแมวมาก่อน",
-        "other": "แมวได้รับวัคซีนครบแล้ว"
-        }
-    },
-        {
-        "type": "สุนัข",
-        "breed": "พันธุ์ผสม",
-        "gender": "ตัวผู้",
-        "age": "1-2 ปี",
-        "personality": "ร่าเริง ซุกซน",
-        "image": "OOP-project/streamlit/pictures/dog02.jpg",
-        "contact": {
-           "name": "นายสมชาย ใจดี",
-           "phone": "086-000-0000",
-           "email": "somchai.jaidee@example.com"
-        },
-        "additional_info": {
-        "reason": "ถูกทิ้ง",
-        "location": "บ้าน",
-        "experience": "ไม่เคยเลี้ยงสุนัขมาก่อน",
-        "other": "ต้องการหาครอบครัวที่อบอุ่น"
-        }
-    },        
-    ]
-
-def display_animal(animal):
-    st.markdown("## ข้อมูลสัตว์ที่ต้องการรับเลี้ยง")
-
-    st.image(animal["image"])
-
-    st.markdown(f"**ประเภทสัตว์:** {animal['type']}")
-    st.markdown(f"**สายพันธุ์:** {animal['breed']}")
-    st.markdown(f"**เพศ:** {animal['gender']}")
-    st.markdown(f"**อายุ:** {animal['age']}")
-    st.markdown(f"**ลักษณะนิสัย:** {animal['personality']}")
-
-    st.markdown("### ข้อมูลติดต่อ")
-    st.markdown(f"**ชื่อ:** {animal['contact']['name']}")
-    st.markdown(f"**เบอร์โทรศัพท์:** {animal['contact']['phone']}")
-    st.markdown(f"**อีเมล:** {animal['contact']['email']}")
-
-    st.markdown("### ข้อมูลเพิ่มเติม")
-    st.markdown(f"**เหตุผลที่ต้องการรับเลี้ยง:** {animal['additional_info']['reason']}")
-    st.markdown(f"**สถานที่เลี้ยง:** {animal['additional_info']['location']}")
-    st.markdown(f"**ประสบการณ์การเลี้ยงสัตว์:** {animal['additional_info']['experience']}")
-    st.markdown(f"**ข้อมูลอื่นๆ:** {animal['additional_info']['other']}")
+    menu = ["Home", "Sign In", "Create Account", "Donate", "My Account", "Signup"]
+    choice1 = st.sidebar.selectbox('Menu', menu)
+    st.markdown("") 
+    st.markdown("")
+    html_content = """
+<div style='background-color: #F5F5F5; padding: 20px; border-radius: 10px; text-align: center;'>
+    <h3>Questions or Concerns?</h3>
+    <p>Need help? Send us a message!</p>
+    <p><strong>We're here for you.</strong></p> 
+    <p><a href="mailto:piyachat.va.66@ubu.ac.th">piyachat.va.66@ubu.ac.th</a></p> 
+</div>
+"""
 
 
-def display_donate():
-    st.markdown("<h1>Donate</h1>")
-    st.write("You can donate to help abandoned or injured animals.")
 
-    donation_causes = ["Animal Shelters", "Wildlife Conservation", "Veterinary Care"]
-    selected_cause = st.selectbox("Select a cause", donation_causes)
 
-    donation_amount = st.number_input("Donation Amount ($)", min_value=1, value=10)
-    st.write(f"You've selected to donate ${donation_amount} to {selected_cause}.")
+    if choice1 == "Home":
+        st.write("Welcome to the Home Page!")
 
-    payment_methods = ["Credit Card", "Bank Transfer", "PayPal"]
-    selected_payment_method = st.selectbox("Select Payment Method", payment_methods)
+    elif choice1 == "Sign In":
+        st.subheader("Account sign in")
 
-    st.write(f"Selected Payment Method: {selected_payment_method}")
+        username = st.text_input("Email")
+        password = st.text_input("Password", type='password')
+        
+        if st.button('Sign In'):
+            st.success('Sign In as {}'.format(username))
 
-    if st.button("Confirm Donation"):
-        st.success("Your donation has been received successfully!")
+            task = st.selectbox("Task", ["Add Post", "Analytics", "Profiles"])
+            if task == "Add Post":
+                st.subheader("Add your post")
+                st.write("You can add your post here.")
 
-def display_about():
-    st.markdown("<h1>About</h1>")
-    st.write("This application is developed by students from Ubon Ratchathani University.")
+            elif task == "Analytics":
+                st.subheader("Analytics")
+                st.write("Here you can view the analytics.")
 
-def display_contact():
-    st.markdown("<h1>Contact</h1>")
-    st.write("If you have any questions or inquiries, please contact us:")
-    st.write("Email: [piyachat.va.66@ubu.ac.th](mailto:piyachat.va.66@ubu.ac.th)")
-    st.write("Or fill out the contact form at [this link](#)")
+            elif task == "Profiles":
+                st.subheader("User Profiles")
+                st.write("View and manage user profiles here.")
 
-    st.write(html_content, unsafe_allow_html=True)
+    elif choice1 == "Create Account":
+        st.subheader("Create Account")
+        st.write("Create a new account here.")
+        first_name = st.text_input("First name")
+        last_name = st.text_input("Last name")
+        email = st.text_input("Email")
+        phone = st.text_input("Phone(optional)")
+        new_password = st.text_input("Password", type='password')
+
+        if st.button("Create Account"):
+            st.success("You have successfully created a valid account.")
+            st.info("Proceed to login to access your account.")
+
+    elif choice1 == "Donate":
+        st.write("Welcome to the Donation Page!")
+        st.write("คุณสามสามารบริจาคเป็นการสมทบทุนเพื่อช่วยเลือสัตว์ที่ไม่มีเจ้าของหรือบาดเจ็บได้!")
+        selected_cause = st.selectbox("Select a cause", ["PayPal", "True Money", "Pay by bank"])
+        donation_amount = st.number_input("Donation Amount ($)", min_value=1, value=10)
+        st.write(f"You've selected to donate ${donation_amount} to {selected_cause}.")
+        if st.button("Confirm Donation"):
+            st.success("Your donation has been received successfully!")
+
+    elif choice1 == "My Account":
+        st.subheader("User Information")
+        st.write("No user information available. Please create an account first.")
+
+    elif choice1 == "Signup":
+        st.subheader("Create New Account")
+        new_user = st.text_input("Username")
+        new_password = st.text_input("Password", type='password')
+
+        if st.button("Signup"):
+            st.success("You have successfully created an valid Account")
+            st.info("Go to login to login")
 
 if __name__ == "__main__":
     main()
+          
